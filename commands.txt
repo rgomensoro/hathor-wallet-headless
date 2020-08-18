@@ -1,0 +1,20 @@
+
+
+START A WALLET
+curl -X POST --data "wallet-id=wallet1" --data-urlencode "passphrase=Dudu2007!" --data "seedKey=wallet1" http://localhost:8000/start
+curl -X POST --data "wallet-id=wallet1" --data-urlencode "passphrase=" --data "seedKey=wallet1" http://localhost:8000/start
+{"success":true}
+
+STOP A WALLET
+curl -X POST -H "X-Wallet-Id: id" http://localhost:8000/wallet/stop
+{"success":true}
+
+WALLET BALANCE
+curl -H "X-Wallet-Id: wallet1" http://localhost:8000/wallet/balance
+
+SIMPLE SEND TX
+curl -X POST -H "X-Wallet-Id: wallet1" --data "address=HQbR43jg7DuvUPAAMXZqLsV24YRzvt3ou3" --data "value=1" http://localhost:8000/wallet/simple-send-tx
+
+GET AN ADDRESS
+
+curl -H "X-Wallet-Id: wallet1" http://localhost:8000/wallet/address
